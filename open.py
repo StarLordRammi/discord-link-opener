@@ -61,13 +61,13 @@ async def on_message(message):
                     if str(toembed['type']).lower() != 'link':
                         try:
                             for field in toembed['fields']:
-                                urls = re.findall("(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+",str(field))
+                                urls = re.findall("(?:(?:https?|ftp)://)?[\w/-?=%.#&+]+.[\w/-?=%.#&+]+",str(field))
                                 if urls:
                                     await check_urls(urls)
                         except:
                             pass
             if message.content != '':
-                urls = re.findall("(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+",message.content)
+                urls = re.findall("(?:(?:https?|ftp)://)?[\w/-?=%.#&+]+.[\w/-?=%.#&+]+",message.content)
                 if urls:
                     await check_urls(urls)
 
