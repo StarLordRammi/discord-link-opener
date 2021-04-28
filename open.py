@@ -17,10 +17,11 @@ global start_count
 start_count = 0
 
 async def check_urls(urls):
-    for url in urls:
-        if any(x in url.lower() for x in keywords):
-            webbrowser.get().open(url)
-            print(f'Opened {url}')
+           for url in urls:
+               for keyword in keywords:
+                   if keyword in url.lower():
+                       webbrowser.get().open(url)
+                       #print(f'Opened {keyword}')
 
 @client.event
 async def on_message(message):
